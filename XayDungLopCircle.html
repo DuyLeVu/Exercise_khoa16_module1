@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise</title>
+</head>
+<body>
+<script>
+    class Circle {
+        radius;
+        color;
+
+        constructor(radius, color) {
+            this.radius = radius;
+            this.color = color;
+        }
+        getRadius (){
+            return this.radius;
+        }
+        getArea (){
+            return Math.PI * this.radius * this.radius;
+        }
+        getColor (){
+            return this.color;
+        }
+
+    }
+    let circle = new Circle(2,'red');
+    let radius = circle.getRadius();
+    let area = circle.getArea();
+    alert("Radius: " + radius + "; area: " +area);
+    //Tao doi tuong hinh tron khac, voi ban kinh co gia tri khac nhau
+    let newCircle = new Circle(5,'Blue');
+    let newRadius = newCircle.getRadius();
+    let newArea = newCircle.getArea();
+    let newColor = newCircle.getColor();
+    alert("Radius: " + newRadius + "; area: " + newArea + "; color: " +newColor);
+</script>
+</body>
+</html>
