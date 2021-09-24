@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Demo</title>
+</head>
+<body>
+<script>
+  class Student{
+    name;
+    score;
+    constructor(name, score) {
+      this.name = name;
+      this.score = score;
+    };
+    study() {
+      this.score += 2;
+    }
+    takeNote(){
+      this.score ++;
+    }
+    giveScore(stu, score){
+      this.score -= score;
+      stu.score += score;
+    }
+    getInfo(){
+      return this.name + ' co ' + this.score + ' diem';
+    }
+  }
+  let person1 = new Student('Duy', 10);
+  let person2 = new Student('Stu2',10);
+  person1.study();
+  alert(person1.getInfo());
+  person1.takeNote();
+  alert(person1.getInfo());
+  person1.giveScore(person2,3);
+  console.log(person1.getInfo());
+  console.log(person2.getInfo());
+
+
+</script>
+</body>
+</html>
