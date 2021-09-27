@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise</title>
+</head>
+<body onload="move()">
+<canvas id="myCanvas" width="1368px" height="768px" style="border: 1px solid #d3d3d3"></canvas>
+<script>
+    //Vẽ một hình tròn đơn giản với kích thước cố định
+    class Circle {
+        x;
+        y;
+        radius;
+        constructor(x, y, radius) {
+            this.x = x;
+            this.y = y;
+            this.radius = radius;
+        };
+        getRandomHex(){
+            return Math.floor(Math.random()*255);
+        }
+        getRandomColor(){
+            let red = this.getRandomHex();
+            let green = this.getRandomHex();
+            let blue = this.getRandomHex();
+            return "rgb(" + red + "," + blue + "," + green + ")";
+        }
+        createCircle(){
+            let ctx = document.getElementById('myCanvas').getContext("2d");
+
+            ctx.beginPath();
+            // this.x = this.x + 10;
+            // this.y = this.y +10;
+            ctx.arc(this.x, this.y, this.radius, 0, 2*Math.PI);
+            ctx.fillStyle = this.getRandomColor();
+            ctx.fill();
+            ctx.closePath()
+        }
+        moveCircle(ctx){
+        //     ctx.clearRect(this.x,this.y,1368,768);
+            this.x = this.x +10;
+            // this.y= this.y +10;
+            // let ctx = document.getElementById('myCanvas').getContext("2d");
+            ctx.clearRect(0,0,1368,768);
+            this.createCircle();
+
+        //
+        //     setTimeout(this.moveCircle, 1000);
+        };
+    }
+    // let circle = new Circle(500,500,80);
+    // circle.createCircle();
+
+    //Tạo hình tròn có bán kính ngẫu nhiên
+    // let radius = Math.floor(Math.random()*80);
+    // let circle2 = new Circle(500,500,radius);
+    // circle2.createCircle();
+
+    //Tạo hình tròn có màu sắc ngẫu nhiên
+    // let circle3 = new Circle(500,500,radius);
+    // circle3.createCircle();
+
+    //Xây dựng hàm tạo ra 30 hình tròn
+    function createMultipleCircle(){
+        for (let i=0; i<30; i++){
+            let circle = new Circle(Math.random() * window.innerWidth, Math.random() * window.innerHeight,  Math.floor(Math.random()*80));
+            circle.createCircle();
+        }
+    }
+    createMultipleCircle();
+
+    // let circle = new Circle(50, 50, 20)
+    // let circle = new Circle(Math.random() * window.innerWidth, Math.random() * window.innerHeight,  Math.floor(Math.random()*80));
+    let ctx = document.getElementById('myCanvas').getContext("2d");
+
+        function move() {
+            circle.moveCircle(ctx)
+            setTimeout(move, 1000)
+        }
+</script>
+</body>
+</html>
