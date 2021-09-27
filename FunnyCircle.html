@@ -70,10 +70,11 @@
     }
     createMultipleCircle();
 
-    // let circle = new Circle(50, 50, 20)
+
     // let circle = new Circle(Math.random() * window.innerWidth, Math.random() * window.innerHeight,  Math.floor(Math.random()*80));
     let ctx = document.getElementById('myCanvas').getContext("2d");
-
+    // Xây dựng hàm di chuyển hình tròn
+    let circle = new Circle(50, 50, 20)
         function move() {
             circle.moveCircle(ctx)
             setTimeout(move, 1000)
