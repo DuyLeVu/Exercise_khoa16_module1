@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise</title>
+</head>
+<body>
+<script>
+    class Temperature{
+        celcius;
+        constructor(celcius) {
+            this.celcius = celcius;
+        }
+        getFahrenheit(){
+            return (this.celcius * 1.8) + 32
+        }
+        getKevin(){
+            return (this.celcius + 273.15)
+        }
+    }
+    let newTemperature = new Temperature(25);
+    document.write("Chuyen sang do F: " + newTemperature.getFahrenheit() + "<br>" + "Chuyen sang Kevin: " + newTemperature.getKevin());
+</script>
+</body>
+</html>
