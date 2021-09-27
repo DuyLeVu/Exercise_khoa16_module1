@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise</title>
+</head>
+<body>
+<canvas id="myCanvas" height="768" width="1368" style="border: 1px solid #d3d3d3"></canvas>
+<script>
+    let ctx = document.getElementById('myCanvas').getContext("2d");
+    class Rectangle {
+        x;
+        y;
+        length;
+        width;
+        constructor(x, y, length, width) {
+            this.x = x;
+            this.y = y;
+            this.length = length;
+            this.width = width;
+        }
+        calPerimeter(){
+            return ((this.length+this.width)*2)
+        }
+        calAcreage(){
+            return (this.length * this.width)
+        }
+        drawRectangle(ctx){
+            ctx.fillStyle = "#FF0000";
+            ctx.fillRect(this.x, this.y ,this.length,this.width);
+        }
+    }
+    let rectangel = new Rectangle(0,0,50,30);
+    rectangel.drawRectangle(ctx);
+    let newRectangle = new Rectangle(500,380,300,100);
+    console.log(newRectangle.calPerimeter());
+    console.log(newRectangle.calAcreage());
+    newRectangle.drawRectangle(ctx);
+</script>
+</body>
+</html>
